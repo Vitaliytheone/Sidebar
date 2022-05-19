@@ -1,26 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Box from "@mui/material/Box";
+import { Title, Todo, Form } from "./components";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Box sx={{ p: 4, maxWidth: 600 }}>
+            <Title />
+            <Form />
+            <Todo text="12321312" />
+            <Todo text="12321312" />
+        </Box>
+    );
 }
 
 export default App;
