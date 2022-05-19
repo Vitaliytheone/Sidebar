@@ -6,8 +6,8 @@ function App() {
         <Box sx={{ p: 4, maxWidth: 600 }}>
             <Title />
             <Form />
-            <Todo text="12321312" />
-            <Todo text="12321312" />
+            <Todo value="12321312" />
+            <Todo value="12321312" />
         </Box>
     );
 }
