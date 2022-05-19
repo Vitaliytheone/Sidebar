@@ -1,11 +1,32 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import todo from "../../store/todo";
+import { observer } from "mobx-react-lite";
+import React, { useState } from "react";
+import { nanoid } from "nanoid";
 
 const Form = () => {
+    const [value, setValue] = useState("");
+
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(e.target.value);
+    };
+
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        todo.addTodo({ id: nanoid(), value });
+    };
+
     return (
-        <Box sx={{ display: "flex", mb: "32px" }} component="form" noValidate autoComplete="off">
-            <TextField sx={{ mr: "6px", width: "100%" }} id="add-todo" label="Write task" variant="outlined" />
+        <Box onSubmit={onSubmit} sx={{ display: "flex", mb: "32px" }} component="form" noValidate autoComplete="off">
+            <TextField
+                onChange={onChange}
+                sx={{ mr: "6px", width: "100%" }}
+                id="add-todo"
+                label="Write task"
+                variant="outlined"
+            />
             <Button sx={{ height: "auto", width: "160px" }} variant="outlined" type="submit">
                 Add task
             </Button>
@@ -13,4 +34,4 @@ const Form = () => {
     );
 };
 
-export default Form;
+export default observer(Form);
