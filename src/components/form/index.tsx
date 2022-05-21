@@ -27,7 +27,7 @@ const Form = () => {
                 label="Write task"
                 variant="outlined"
             />
-            <Button sx={{ height: "auto", width: "160px" }} variant="outlined" type="submit">
+            <Button sx={{ height: "auto", width: "160px" }} variant="outlined" type="submit" disabled={!value}>
                 Add task
             </Button>
         </Box>
