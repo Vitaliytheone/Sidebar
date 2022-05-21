@@ -1,10 +1,10 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import todo from "../../store/todo";
 import { observer } from "mobx-react-lite";
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
+import todo from "../../store/todo";
 
 const Form = () => {
     const [value, setValue] = useState("");

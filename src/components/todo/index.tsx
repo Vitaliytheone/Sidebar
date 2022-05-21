@@ -9,7 +9,6 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { TTodo } from "../../store/todo";
 import todo from "../../store/todo";
-import React from "react";
 
 const Todo = ({ value, id }: TTodo) => {
     const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });

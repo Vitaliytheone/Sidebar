@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import { arrayMove } from "@dnd-kit/sortable";
 
 export type TTodo = {
     id: string;
@@ -10,6 +11,7 @@ interface TStore {
     addTodo: (todo: TTodo) => void;
     updateTodo: (id: string, value: string) => void;
     removeTodo: (id: string) => void;
+    moveTodo: (activeId: string, overId: string | null) => void;
 }
 
 class Store implements TStore {
@@ -30,6 +32,14 @@ class Store implements TStore {
 
     removeTodo(id: string) {
         this.todos = this.todos.filter((item) => item.id !== id)
+    }
+
+    moveTodo(activeId: string, overId: string | null) {
+        if (activeId !== overId) {
+        const oldIndex = this.todos.findIndex((item) => item.id === activeId);
+        const newIndex = this.todos.findIndex((item) => item.id === overId);
+        this.todos = arrayMove(this.todos, oldIndex, newIndex);
+        }
     }
 
 }
