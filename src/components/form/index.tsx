@@ -16,11 +16,13 @@ const Form = () => {
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         todo.addTodo({ id: nanoid(), value });
+        setValue("");
     };
 
     return (
         <Box onSubmit={onSubmit} sx={{ display: "flex", mb: "32px" }} component="form" noValidate autoComplete="off">
             <TextField
+                value={value}
                 onChange={onChange}
                 sx={{ mr: "6px", width: "100%" }}
                 id="add-todo"

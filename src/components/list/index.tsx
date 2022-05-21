@@ -15,7 +15,7 @@ const TodoList = () => {
     };
 
     return (
-        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+        <DndContext autoScroll={false} sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
             <SortableContext items={arr} strategy={verticalListSortingStrategy}>
                 {arr.map((i) => {
                     return <Todo key={i.id} value={i.value} id={i.id} />;
