@@ -35,9 +35,10 @@ const Todo = ({ value, id }: TTodo) => {
                     onChange={onChange}
                     variant="standard"
                     value={value}
+                    onPointerDown={(e) => e.stopPropagation()}
                 />
                 <CardActions>
-                    <Button onClick={onRemove}>
+                    <Button onClick={onRemove} onPointerDown={(e) => e.stopPropagation()}>
                         <DeleteIcon />
                     </Button>
                 </CardActions>
